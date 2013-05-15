@@ -6,6 +6,31 @@ describe("Person", function(){
 	johnDoe = new Person("John", "Doe", 40);
     });
 
+    describe("Null Person", function() {
+	var nullyDoe;
+
+	beforeEach(function() {
+	    nullyDoe = null;
+	});
+
+	it("outer person should be defined", function() {
+	    expect(johnDoe).toBeDefined();
+	});
+
+	it("inner person to be defined", function() {
+	    expect(nullyDoe).toBeDefined();
+	});
+
+	it("created inner person should not be null", function() {
+	    nullyDoe = johnDoe;
+	    expect(nullyDoe).not.toBeNull();
+	});
+
+	it("inner person should be null", function() {
+	    expect(nullyDoe).toBeNull();
+	});
+    });
+
     it("should be defined when created", function() {
         expect(johnDoe).toBeDefined();
     });
