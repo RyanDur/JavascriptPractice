@@ -58,4 +58,18 @@ describe("Person", function(){
 	expect(johnDoe.lastName).not.toBe("Doe");
 	expect(johnDoe.lastName).toBe("Durling");
     });
+
+    it("should have the full name", function() {
+	expect(johnDoe.getName()).toBe("John Doe");
+    });
+
+    it("should reflect change in full name when editied", function() {
+	johnDoe.lastName = "Smith";
+	expect(johnDoe.getName()).toBe("John Smith");
+    });
+
+    it("should have undefined prperties", function() {
+	expect(johnDoe.isMale).toBeUndefined();
+	expect(johnDoe.dateOfBirth).toBeUndefined();
+    });
 });
