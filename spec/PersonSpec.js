@@ -3,7 +3,7 @@ describe("Person", function(){
     var johnDoe;
 
     beforeEach(function() {
-	johnDoe = new Person("John", "Doe", 40);
+	johnDoe = new Person({firstName:"John", lastName:"Doe", age:40});
     });
 
     describe("Null Person", function() {

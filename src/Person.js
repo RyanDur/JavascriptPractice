@@ -1,12 +1,14 @@
-function Person(firstName, lastName, age, isMale, dateOfBirth) {
+function Person(properties) {
 
     "user strict";
 
-    this.firstName = firstName;
-    this.lastName = lastName,
-    this.age = age;
-    this.isMale = isMale;
-    this.dateOfBirth = dateOfBirth;
+    if(properties) {
+	this.firstName = properties.firstName;
+	this.lastName = properties.lastName,
+	this.age = properties.age;
+	this.isMale = properties.isMale;
+	this.dateOfBirth = properties.dateOfBirth;
+    };
 
     this.getName = function getName() {
 	return (this.firstName || "") + " " + (this.lastName || "");
