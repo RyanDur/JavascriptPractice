@@ -2,15 +2,31 @@ function Person(properties) {
 
     "user strict";
 
-    if(properties) {
-	this.firstName = properties.firstName;
-	this.lastName = properties.lastName,
-	this.age = properties.age;
-	this.isMale = properties.isMale;
-	this.dateOfBirth = properties.dateOfBirth;
+    if(!(this instanceof Person)) {
+        return new Person(properties);
     };
 
-    this.getName = function getName() {
-	return (this.firstName || "") + " " + (this.lastName || "");
+    var that = {}, firstName, lastName, age, isMale, dateOfBirth;
+
+    if(properties) {
+        firstName = properties.firstName;
+        lastName = properties.lastName,
+        age = properties.age;
+        isMale = properties.isMale;
+        dateOfBirth = properties.dateOfBirth;
     };
+
+    that.setFirstName = function setFirstName(value) {
+	firstName = value;
+    };
+
+    that.setLastName = function setLastName(value) {
+	lastName = value;
+    };
+
+    that.getName = function getName() {
+        return (firstName || "") + " " + (lastName || "");
+    };
+
+    return that;
 };
