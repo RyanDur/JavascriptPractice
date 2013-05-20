@@ -77,8 +77,7 @@ function countLeading(test, par) {
 }
 
 function processParagraph(par) {
-    var headings = ['p','h1','h2','h3','h4'];
     var headerCount = countLeading(equals('%'), par);
     par = par.replace(/%*/, "");
-    return {type:headings[headerCount], content:par.trim()};
+    return {type:(headerCount === 0 ? 'p':'h' + headerCount), content:par.trim()};
 }
