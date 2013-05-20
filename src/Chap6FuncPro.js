@@ -68,13 +68,17 @@ function map(func, array) {
   return result;
 }
 
-function getHeading(hCount, par) {
-    var headings = ['h1','h2','h3','h4'];
-    par = par.replace(/%*/, "");
-    return {type:(hCount === 0 ? 'p' : headings[hCount -1]), content:par.trim()};
+function countLeading(test, par) {
+    var leading = 0;
+    while(test(par.charAt(leading))) {
+	leading++;
+    }
+    return leading;
 }
 
 function processParagraph(par) {
-    var headerCount = count(equals('%'), par);
-    return getHeading(headerCount, par);
+    var headings = ['p','h1','h2','h3','h4'];
+    var headerCount = countLeading(equals('%'), par);
+    par = par.replace(/%*/, "");
+    return {type:headings[headerCount], content:par.trim()};
 }
