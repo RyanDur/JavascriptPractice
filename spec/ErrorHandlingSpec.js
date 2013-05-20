@@ -3,7 +3,7 @@ describe("ErrorHandling", function() {
     var errorHandler;
 
     beforeEach(function() {
-        errorHandler = new ErrorHandling();
+        errorHandler = Object.create(ErrorHandling());
     });
 
     describe("between", function() {

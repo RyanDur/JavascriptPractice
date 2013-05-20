@@ -3,7 +3,7 @@ function Person(properties) {
     "user strict";
 
     if(!(this instanceof Person)) {
-        return new Person(properties);
+        return Object.create(Person,properties);
     };
 
     var that = {}, firstName, lastName, age, isMale, dateOfBirth;
