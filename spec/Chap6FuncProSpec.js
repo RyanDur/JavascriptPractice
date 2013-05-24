@@ -65,5 +65,9 @@ describe("splitParagraph", function() {
 	var paraBrace = "I have no closing {brace";
 
 	expect(function() {splitParagraph(paraBrace);}).toThrow("Missing closing '}'");
+
+	var parAsterisk = "I have no closing *asterisk";
+
+	expect(function() {splitParagraph(parAsterisk);}).toThrow("Missing closing '*'");
     });
 });
